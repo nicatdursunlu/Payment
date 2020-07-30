@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import { TransactionsScreen } from "../screens/TransactionsScreen";
 import { DetailsScreen } from "../screens";
+import { HeaderBackIcon } from "../components/HeaderBackIcon";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -19,10 +20,12 @@ export const RootNav = () => {
         <Screen
           name="Details"
           component={DetailsScreen}
-          options={({ route }) => ({
+          options={({ route, navigation }) => ({
             title: route.params?.users.name,
             headerTitleAlign: "center",
-            
+            headerLeft: () => (
+              <HeaderBackIcon onPress={() => navigation.goBack()} />
+            ),
           })}
         />
       </Navigator>

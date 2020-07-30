@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 import { Container } from "../../commons/Container";
 import { Payment } from "./Payment";
@@ -13,9 +14,11 @@ export const DetailsScreen = ({ route }) => {
 
       <View style={styles.row}>
         <TouchableOpacity style={[styles.btn, { marginRight: 30 }]}>
+          <Icon name="credit-card" size={20} style={styles.icon} />
           <Text style={styles.btnText}>Card</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.btn}>
+          <Icon name="dollar" size={20} style={styles.icon} />
           <Text style={styles.btnText}>Debt</Text>
         </TouchableOpacity>
       </View>
@@ -41,8 +44,13 @@ const styles = StyleSheet.create({
   btn: {
     backgroundColor: "lightgrey",
     borderRadius: 15,
-    paddingVertical: 5,
+    paddingVertical: 7,
     paddingHorizontal: 25,
+    flexDirection: "row",
+    elevation: 8,
+  },
+  icon: {
+    marginRight: 10,
   },
   btnText: {
     fontSize: 15,

@@ -7,8 +7,8 @@ export const Indicator = ({ title, fill, tintColor }) => {
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       <AnimatedCircularProgress
-        size={100}
-        width={10}
+        size={110}
+        width={8}
         fill={fill}
         tintColor={tintColor}
         backgroundColor="lightgrey"

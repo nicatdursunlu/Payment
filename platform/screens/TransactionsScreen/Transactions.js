@@ -1,11 +1,17 @@
 import React from "react";
-import { StyleSheet, View, Text, FlatList, Image } from "react-native";
+import { StyleSheet, View, Text, FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { connect } from "react-redux";
 
 import { USERS } from "../../dummy/users";
 import { Users } from "./Users";
+import { selectUser } from "../../redux/users";
 
-export const Transactions = () => {
+const mapStateToProps = (state) => ({
+  users: selectUser(state),
+});
+
+export const Transactions = connect(mapStateToProps)(({ users }) => {
   const navigation = useNavigation();
 
   return (
@@ -14,17 +20,7 @@ export const Transactions = () => {
       <FlatList
         keyExtractor={(item) => item.id}
         contentContainerStyle={styles.users}
-        data={USERS}
-        renderItem={({ item }) => (
-          <Users
-            users={item}
-            onPress={() => navigation.navigate("Details", { users: item })}
-          />
-        )}
-      />
-      <FlatList
-        keyExtractor={(item) => item.id}
-        data={USERS}
+        data={users}
         renderItem={({ item }) => (
           <Users
             users={item}
@@ -34,7 +30,7 @@ export const Transactions = () => {
       />
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {

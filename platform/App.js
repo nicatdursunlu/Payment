@@ -1,8 +1,16 @@
 import React from "react";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+
 import { RootNav } from "./navigation/RootNav";
+import store, { persistor } from "./redux";
 
 export default function App() {
   return (
-      <RootNav />
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <RootNav />
+      </PersistGate>
+    </Provider>
   );
 }

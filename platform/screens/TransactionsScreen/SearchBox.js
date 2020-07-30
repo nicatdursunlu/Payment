@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, TextInput } from "react-native";
 
 export const SearchBox = () => {
+  const [search, setSearch] = useState("");
+
   return (
     <View style={styles.container}>
-      <TextInput style={styles.field} placeholder="Seacrh" />
+      <TextInput
+        value={search}
+        onChangeText={(val) => setSearch(val)}
+        style={styles.field}
+        placeholder="Seacrh"
+      />
     </View>
   );
 };
@@ -21,6 +28,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     textAlign: "center",
     fontWeight: "bold",
-    fontSize: 18
+    fontSize: 18,
   },
 });
