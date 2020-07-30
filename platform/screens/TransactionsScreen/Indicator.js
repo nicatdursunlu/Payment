@@ -2,17 +2,22 @@ import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
 
-export const Indicator = ({title}) => {
+export const Indicator = ({ title, fill, tintColor }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       <AnimatedCircularProgress
-        size={120}
-        width={15}
-        fill={50}
-        tintColor="blue"
+        size={100}
+        width={10}
+        fill={fill}
+        tintColor={tintColor}
         backgroundColor="lightgrey"
-      />
+        rotation={0}
+      >
+        {(fill) => (
+          <Text style={[styles.fill, { color: tintColor }]}>{fill}%</Text>
+        )}
+      </AnimatedCircularProgress>
     </View>
   );
 };
@@ -24,5 +29,10 @@ const styles = StyleSheet.create({
   title: {
     color: "grey",
     fontSize: 15,
+    paddingBottom: 10,
+  },
+  fill: {
+    fontWeight: "bold",
+    fontSize: 18,
   },
 });

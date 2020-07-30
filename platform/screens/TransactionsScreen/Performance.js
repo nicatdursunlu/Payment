@@ -8,9 +8,9 @@ export const Performance = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Performance</Text>
       <View style={styles.row}>
-        <Indicator title="Current week" />
-        <Indicator title="Last week" />
-        <Indicator title="Last month" />
+        <Indicator title="Current week" fill={64} tintColor="lightgreen" />
+        <Indicator title="Last week" fill={40} tintColor="red" />
+        <Indicator title="Last month" fill={90} tintColor="blue" />
       </View>
     </View>
   );
@@ -29,5 +29,6 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: "row",
+    justifyContent: "space-between",
   },
 });
