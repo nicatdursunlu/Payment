@@ -10,5 +10,5 @@ container that is wrap the whole screens for common options. I try to split code
 (use components in each screen folder) to be more clear, readable and understandable. 
 Styles are not exctly the same. I focused on general structure of app. During the code 
 challenge, several times I lost my internet connection and time, but I try to do my best. 
-I fix some bags after submitting you can see them (I do not know it causes some 
-troubles or no, but I did it).
+I fix some bags after submitting you can see them (I do not know it causes some troubles
+or no, but I did it).
